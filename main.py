@@ -9,13 +9,12 @@ from concurrent.futures import ThreadPoolExecutor
 try:
     parser = argparse.ArgumentParser()
     parser.add_argument("file_path", type=Path)
-    parser.add_argument("integers", type=int)
+    parser.add_argument("integers", type=int, nargs='?', default=4)
     args = parser.parse_args()
     file_dest = args.file_path
     num_threads = args.integers
-    num_threads = 4 # sets the default numbrer of threads. 
 except:
-    print ("\nUsage: python main.py <destination> <number of threads (default 4)")
+    print ("\nUsage: python main.py <destination> <number of threads (default is 4)")
     exit()
 
 musicbrainzngs.set_useragent(
